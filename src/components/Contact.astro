@@ -1,0 +1,128 @@
+---
+const contacts = [
+    {
+        icon: "bi-envelope",
+        title: "Email",
+        text: "juanfelipealvearestrada@gmail.com",
+        href: "mailto:juanfelipealvearestrada@gmail.com",
+        color: null
+    },
+    {
+        icon: "bi-whatsapp",
+        title: "WhatsApp",
+        text: "(+57) 302 527 9667",
+        href: "https://wa.me/573025279667",
+        color: "#25d366"
+    },
+    {
+        icon: "bi-github",
+        title: "GitHub",
+        text: "/Juanfelipe-pro",
+        href: "https://github.com/Juanfelipe-pro",
+        color: null
+    },
+    {
+        icon: "bi-linkedin",
+        title: "LinkedIn",
+        text: "/in/juan-felipe-alvear-estrada",
+        href: "https://www.linkedin.com/in/juan-felipe-alvear-estrada-399a6b388/",
+        color: "#0077b5"
+    },
+];
+---
+
+<section class="section contact" id="contacto">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <p class="section-label">// Contacto</p>
+            <h2 class="section-title">¿Hablamos?</h2>
+        </div>
+        
+        <div class="contact-grid">
+            {contacts.map((contact, index) => (
+                <a 
+                    href={contact.href} 
+                    target={contact.href.startsWith('mailto') ? '_self' : '_blank'}
+                    rel="noopener noreferrer"
+                    class="contact-card" 
+                    data-aos="fade-up" 
+                    data-aos-delay={index * 100}
+                >
+                    <div class="contact-icon" style={contact.color ? `background: ${contact.color}` : ''}>
+                        <i class={`bi ${contact.icon}`}></i>
+                    </div>
+                    <h3 class="contact-title">{contact.title}</h3>
+                    <p class="contact-text">{contact.text}</p>
+                </a>
+            ))}
+        </div>
+    </div>
+</section>
+
+<style>
+    .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .contact-card {
+        background: var(--dark-light);
+        border-radius: 16px;
+        padding: 1.75rem;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        text-align: center;
+        transition: all 0.3s ease;
+        display: block;
+    }
+
+    .contact-card:hover {
+        border-color: rgba(139, 92, 246, 0.4);
+        transform: translateY(-6px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .contact-icon {
+        width: 56px;
+        height: 56px;
+        background: var(--gradient);
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem;
+        font-size: 1.5rem;
+        color: white;
+    }
+
+    .contact-title {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 0.375rem;
+    }
+
+    .contact-text {
+        color: var(--text-muted);
+        font-size: 0.8125rem;
+        word-break: break-word;
+    }
+
+    @media (max-width: 968px) {
+        .contact-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 480px) {
+        .contact-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

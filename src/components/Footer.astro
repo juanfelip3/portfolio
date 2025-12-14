@@ -1,0 +1,180 @@
+---
+const socialLinks = [
+    { icon: "bi-github", href: "https://github.com/Juanfelipe-pro", label: "GitHub" },
+    { icon: "bi-linkedin", href: "https://www.linkedin.com/in/juan-felipe-alvear-estrada-399a6b388/", label: "LinkedIn" },
+    { icon: "bi-envelope", href: "mailto:juanfelipealvearestrada@gmail.com", label: "Email" },
+    { icon: "bi-whatsapp", href: "https://wa.me/573025279667", label: "WhatsApp" },
+];
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-left">
+                <span class="copyright">© {currentYear} Juan Felipe Alvear</span>
+            </div>
+            
+            <div class="footer-center">
+                <div class="social-links">
+                    {socialLinks.map(link => (
+                        <a 
+                            href={link.href} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            class="social-link"
+                            aria-label={link.label}
+                        >
+                            <i class={`bi ${link.icon}`}></i>
+                        </a>
+                    ))}
+                </div>
+            </div>
+            
+            <div class="footer-right">
+                <span class="status">
+                    <span class="status-dot"></span>
+                    Disponible para trabajar
+                </span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Scroll to Top Button -->
+<button class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top">
+    <i class="bi bi-arrow-up"></i>
+</button>
+
+<style>
+    .footer {
+        background: var(--dark);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 2rem 0;
+    }
+
+    .footer-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .copyright {
+        color: var(--text-muted);
+        font-size: 0.875rem;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 0.625rem;
+    }
+
+    .social-link {
+        width: 42px;
+        height: 42px;
+        background: var(--dark-light);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-muted);
+        font-size: 1.125rem;
+        transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+        background: var(--gradient);
+        color: white;
+        transform: translateY(-3px);
+    }
+
+    .status {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--text-muted);
+        font-size: 0.875rem;
+    }
+
+    .status-dot {
+        width: 8px;
+        height: 8px;
+        background: var(--success);
+        border-radius: 50%;
+        animation: blink 2s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.4; }
+    }
+
+    /* Scroll to Top */
+    .scroll-top {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        width: 50px;
+        height: 50px;
+        background: var(--gradient);
+        border: none;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.25rem;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+        z-index: 1000;
+    }
+
+    .scroll-top.visible {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .scroll-top:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+    }
+
+    @media (max-width: 768px) {
+        .footer-content {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .footer-left,
+        .footer-right {
+            order: 1;
+        }
+
+        .footer-center {
+            order: 0;
+        }
+    }
+</style>
+
+<script>
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 500) {
+            scrollTopBtn?.classList.add('visible');
+        } else {
+            scrollTopBtn?.classList.remove('visible');
+        }
+    });
+
+    scrollTopBtn?.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>

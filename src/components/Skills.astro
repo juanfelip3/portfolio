@@ -1,0 +1,140 @@
+---
+const skillCategories = [
+    {
+        title: "Lenguajes",
+        icon: "bi-code-slash",
+        skills: ["Python", "Java", "Ruby", "JavaScript", "SQL"]
+    },
+    {
+        title: "Frameworks",
+        icon: "bi-layers",
+        skills: ["Django", "Django REST Framework", "FastAPI", "Spring Boot", "Ruby on Rails", "Pandas", "Polars"]
+    },
+    {
+        title: "Bases de Datos",
+        icon: "bi-database",
+        skills: ["PostgreSQL", "MySQL", "SQLite"]
+    },
+    {
+        title: "Arquitectura",
+        icon: "bi-diagram-3",
+        skills: ["Microservicios", "MVC", "SOLID", "Clean Architecture", "REST APIs"]
+    },
+    {
+        title: "DevOps",
+        icon: "bi-tools",
+        skills: ["Git / GitHub", "Docker", "n8n", "Swagger / OpenAPI", "JWT Auth"]
+    },
+    {
+        title: "Metodologías",
+        icon: "bi-kanban",
+        skills: ["Scrum", "Agile", "Code Review", "Testing", "Documentación Técnica"]
+    },
+];
+---
+
+<section class="section skills" id="habilidades">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <p class="section-label">// Stack Técnico</p>
+            <h2 class="section-title">Habilidades <span class="gradient-text">Técnicas</span></h2>
+        </div>
+        
+        <div class="skills-grid">
+            {skillCategories.map((category, index) => (
+                <div class="skill-card" data-aos="fade-up" data-aos-delay={index * 50}>
+                    <div class="skill-header">
+                        <i class={`bi ${category.icon}`}></i>
+                        <h3>{category.title}</h3>
+                    </div>
+                    <div class="skill-tags">
+                        {category.skills.map(skill => (
+                            <span class="skill-tag">{skill}</span>
+                        ))}
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>
+
+<style>
+    .skills {
+        background: linear-gradient(180deg, var(--dark) 0%, var(--dark-light) 100%);
+    }
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+
+    .skill-card {
+        background: var(--dark);
+        border-radius: 16px;
+        padding: 1.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition: all 0.3s ease;
+    }
+
+    .skill-card:hover {
+        border-color: rgba(139, 92, 246, 0.3);
+        transform: translateY(-4px);
+    }
+
+    .skill-header {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .skill-header i {
+        font-size: 1.25rem;
+        color: var(--primary-light);
+    }
+
+    .skill-header h3 {
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .skill-tag {
+        padding: 0.375rem 0.75rem;
+        background: var(--dark-light);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 6px;
+        font-size: 0.8125rem;
+        font-weight: 500;
+        transition: all 0.2s ease;
+    }
+
+    .skill-tag:hover {
+        border-color: var(--primary);
+        color: var(--primary-light);
+        transform: translateY(-2px);
+    }
+
+    @media (max-width: 968px) {
+        .skills-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 640px) {
+        .skills-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
