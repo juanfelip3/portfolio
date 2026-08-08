@@ -2,44 +2,43 @@
 const highlights = [
     { icon: "bi-check-circle-fill", text: "Remoto / Híbrido" },
     { icon: "bi-check-circle-fill", text: "Tiempo completo" },
-    { icon: "bi-geo-alt-fill", text: "Colombia 🇨🇴" },
+    { icon: "bi-geo-alt-fill", text: "Colombia" },
 ];
+
+const typewriterWords = ["Backend Developer", "Python", "Django", "Go", "APIs REST", "PostgreSQL"];
 ---
 
 <section class="hero" id="inicio">
     <div class="hero-bg">
         <div class="hero-gradient"></div>
         <div class="hero-grid"></div>
-        <div class="hero-glow"></div>
+        <div class="hero-glow glow-1"></div>
+        <div class="hero-glow glow-2"></div>
     </div>
-    
+
     <div class="container hero-content">
         <div class="hero-badge" data-aos="fade-down">
             <span class="badge-dot"></span>
-            Disponible para oportunidades laborales
+            <span class="badge-text">DISPONIBLE PARA OPORTUNIDADES</span>
         </div>
-        
+
         <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
             <span class="greeting">Hola, soy</span>
             <span class="name gradient-text">Juan Felipe Alvear</span>
         </h1>
-        
+
         <p class="hero-role" data-aos="fade-up" data-aos-delay="150">
-            <span class="role-tag">Backend Developer</span>
-            <span class="role-separator">·</span>
-            <span>Python</span>
-            <span class="role-separator">·</span>
-            <span>Django</span>
-            <span class="role-separator">·</span>
-            <span>Java</span>
+            <span class="role-static">&gt; </span>
+            <span class="typewriter" id="typewriter"></span>
+            <span class="typewriter-cursor">|</span>
         </p>
-        
+
         <p class="hero-description" data-aos="fade-up" data-aos-delay="200">
-            Profesional del desarrollo de software con <strong>+2 años de experiencia</strong> 
-            creando sistemas backend escalables, APIs robustas y procesos automatizados. 
-            Especializado en arquitectura modular y análisis de datos.
+            Desarrollador Backend con <strong>+2 años de experiencia</strong>
+            creando sistemas escalables, APIs robustas y procesos automatizados.
+            Enfoque en arquitectura modular, principios SOLID y sistemas mantenibles.
         </p>
-        
+
         <div class="hero-highlights" data-aos="fade-up" data-aos-delay="250">
             {highlights.map(item => (
                 <div class="highlight-item">
@@ -48,7 +47,7 @@ const highlights = [
                 </div>
             ))}
         </div>
-        
+
         <div class="hero-buttons" data-aos="fade-up" data-aos-delay="300">
             <a href="mailto:juanfelipealvearestrada@gmail.com" class="btn btn-primary">
                 <i class="bi bi-envelope"></i>
@@ -59,7 +58,7 @@ const highlights = [
                 Ver Proyectos
             </a>
         </div>
-        
+
         <div class="hero-scroll" data-aos="fade-up" data-aos-delay="400">
             <a href="#sobre-mi" class="scroll-indicator">
                 <span>Scroll</span>
@@ -91,10 +90,10 @@ const highlights = [
         left: -50%;
         width: 200%;
         height: 200%;
-        background: 
-            radial-gradient(circle at 30% 30%, rgba(139, 92, 246, 0.15) 0%, transparent 40%),
-            radial-gradient(circle at 70% 60%, rgba(6, 182, 212, 0.1) 0%, transparent 40%),
-            radial-gradient(circle at 50% 80%, rgba(16, 185, 129, 0.08) 0%, transparent 30%);
+        background:
+            radial-gradient(circle at 30% 30%, rgba(255, 46, 166, 0.12) 0%, transparent 40%),
+            radial-gradient(circle at 70% 60%, rgba(0, 240, 255, 0.08) 0%, transparent 40%),
+            radial-gradient(circle at 50% 80%, rgba(255, 204, 0, 0.06) 0%, transparent 30%);
         animation: rotate 60s linear infinite;
     }
 
@@ -106,27 +105,40 @@ const highlights = [
     .hero-grid {
         position: absolute;
         inset: 0;
-        background-image: 
-            linear-gradient(rgba(139, 92, 246, 0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(139, 92, 246, 0.03) 1px, transparent 1px);
+        background-image:
+            linear-gradient(rgba(255, 46, 166, 0.04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 46, 166, 0.04) 1px, transparent 1px);
         background-size: 60px 60px;
         mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
     }
 
     .hero-glow {
         position: absolute;
-        top: 20%;
-        right: 10%;
+        filter: blur(80px);
+        border-radius: 50%;
+    }
+
+    .glow-1 {
+        top: 15%;
+        right: 5%;
         width: 400px;
         height: 400px;
-        background: radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, transparent 70%);
-        filter: blur(60px);
+        background: radial-gradient(circle, rgba(255, 46, 166, 0.25) 0%, transparent 70%);
         animation: pulse 8s ease-in-out infinite;
+    }
+
+    .glow-2 {
+        bottom: 20%;
+        left: 10%;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(0, 240, 255, 0.15) 0%, transparent 70%);
+        animation: pulse 10s ease-in-out infinite 2s;
     }
 
     @keyframes pulse {
         0%, 100% { opacity: 0.5; transform: scale(1); }
-        50% { opacity: 0.8; transform: scale(1.1); }
+        50% { opacity: 0.9; transform: scale(1.15); }
     }
 
     .hero-content {
@@ -139,27 +151,31 @@ const highlights = [
         display: inline-flex;
         align-items: center;
         gap: 0.75rem;
-        padding: 0.625rem 1.25rem;
-        background: rgba(16, 185, 129, 0.1);
-        border: 1px solid rgba(16, 185, 129, 0.3);
-        border-radius: 50px;
-        font-size: 0.9375rem;
-        font-weight: 500;
-        color: var(--success);
+        padding: 0.5rem 1.25rem;
+        background: rgba(255, 204, 0, 0.08);
+        border: 1px solid rgba(255, 204, 0, 0.3);
+        border-radius: 2px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        font-family: var(--font-mono);
+        color: var(--accent);
         margin-bottom: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
     }
 
     .badge-dot {
-        width: 10px;
-        height: 10px;
-        background: var(--success);
+        width: 8px;
+        height: 8px;
+        background: var(--accent);
         border-radius: 50%;
         animation: blink 2s ease-in-out infinite;
+        box-shadow: 0 0 10px var(--glow-accent);
     }
 
     @keyframes blink {
         0%, 100% { opacity: 1; }
-        50% { opacity: 0.4; }
+        50% { opacity: 0.3; }
     }
 
     .hero-title {
@@ -172,37 +188,45 @@ const highlights = [
         font-weight: 400;
         color: var(--text-muted);
         margin-bottom: 0.5rem;
+        font-family: var(--font-mono);
     }
 
     .name {
         display: block;
         font-size: clamp(3rem, 8vw, 5rem);
         font-weight: 700;
-        line-height: 1.1;
+        line-height: 1.05;
         letter-spacing: -2px;
     }
 
     .hero-role {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 0.75rem;
+        font-family: var(--font-mono);
         font-size: 1.25rem;
         font-weight: 500;
         color: var(--secondary);
         margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0;
     }
 
-    .role-tag {
-        background: rgba(6, 182, 212, 0.1);
-        padding: 0.25rem 0.75rem;
-        border-radius: 6px;
-        border: 1px solid rgba(6, 182, 212, 0.3);
+    .role-static {
+        color: var(--primary);
     }
 
-    .role-separator {
-        color: var(--text-muted);
-        opacity: 0.5;
+    .typewriter {
+        color: var(--secondary);
+    }
+
+    .typewriter-cursor {
+        color: var(--accent);
+        animation: cursor-blink 1s step-end infinite;
+        font-weight: 300;
+    }
+
+    @keyframes cursor-blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
     }
 
     .hero-description {
@@ -229,10 +253,12 @@ const highlights = [
         align-items: center;
         gap: 0.5rem;
         font-weight: 500;
+        font-size: 0.9375rem;
     }
 
     .highlight-item i {
-        color: var(--success);
+        color: var(--accent);
+        font-size: 0.875rem;
     }
 
     .hero-buttons {
@@ -255,13 +281,14 @@ const highlights = [
         align-items: center;
         gap: 0.5rem;
         color: var(--text-muted);
-        font-size: 0.875rem;
+        font-size: 0.8125rem;
         font-weight: 500;
         transition: color 0.3s ease;
+        font-family: var(--font-mono);
     }
 
     .scroll-indicator:hover {
-        color: var(--primary);
+        color: var(--accent);
     }
 
     .scroll-indicator i {
@@ -293,3 +320,50 @@ const highlights = [
         }
     }
 </style>
+
+<script>
+    const words = ["Backend Developer", "Python", "Django", "Go", "APIs REST", "PostgreSQL"];
+    const typewriterEl = document.getElementById('typewriter');
+    if (typewriterEl) {
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let isPaused = false;
+
+        function type() {
+            const currentWord = words[wordIndex];
+
+            if (isPaused) {
+                setTimeout(type, 1500);
+                isPaused = false;
+                isDeleting = true;
+                return;
+            }
+
+            if (isDeleting) {
+                charIndex--;
+                typewriterEl.textContent = currentWord.substring(0, charIndex);
+
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    wordIndex = (wordIndex + 1) % words.length;
+                    setTimeout(type, 300);
+                    return;
+                }
+                setTimeout(type, 40);
+            } else {
+                charIndex++;
+                typewriterEl.textContent = currentWord.substring(0, charIndex);
+
+                if (charIndex === currentWord.length) {
+                    isPaused = true;
+                    setTimeout(type, 0);
+                    return;
+                }
+                setTimeout(type, 80);
+            }
+        }
+
+        setTimeout(type, 500);
+    }
+</script>

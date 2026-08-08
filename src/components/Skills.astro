@@ -3,32 +3,38 @@ const skillCategories = [
     {
         title: "Lenguajes",
         icon: "bi-code-slash",
-        skills: ["Python", "Java", "Ruby", "JavaScript", "SQL"]
+        color: "#FF2EA6",
+        skills: ["Python", "Go", "Java", "JavaScript", "SQL", "Ruby"]
     },
     {
         title: "Frameworks",
         icon: "bi-layers",
-        skills: ["Django", "Django REST Framework", "FastAPI", "Spring Boot", "Ruby on Rails", "Pandas", "Polars"]
+        color: "#00F0FF",
+        skills: ["Django", "DRF", "FastAPI", "Node.js", "Express", "Pandas", "Polars"]
     },
     {
         title: "Bases de Datos",
         icon: "bi-database",
-        skills: ["PostgreSQL", "MySQL", "SQLite"]
+        color: "#FFCC00",
+        skills: ["PostgreSQL", "SQLite", "Redis", "MySQL"]
     },
     {
         title: "Arquitectura",
         icon: "bi-diagram-3",
+        color: "#FF2EA6",
         skills: ["Microservicios", "MVC", "SOLID", "Clean Architecture", "REST APIs"]
     },
     {
         title: "DevOps",
         icon: "bi-tools",
-        skills: ["Git / GitHub", "Docker", "n8n", "Swagger / OpenAPI", "JWT Auth"]
+        color: "#00F0FF",
+        skills: ["Docker", "Git / GitHub", "Celery", "n8n", "Linux"]
     },
     {
-        title: "Metodologías",
+        title: "Herramientas",
         icon: "bi-kanban",
-        skills: ["Scrum", "Agile", "Code Review", "Testing", "Documentación Técnica"]
+        color: "#FFCC00",
+        skills: ["Swagger / OpenAPI", "JWT Auth", "pytest", "ReportLab", "Scrum / Agile"]
     },
 ];
 ---
@@ -36,15 +42,16 @@ const skillCategories = [
 <section class="section skills" id="habilidades">
     <div class="container">
         <div class="section-header" data-aos="fade-up">
-            <p class="section-label">// Stack Técnico</p>
+            <p class="section-label">Stack Técnico</p>
+            <div class="glow-line"></div>
             <h2 class="section-title">Habilidades <span class="gradient-text">Técnicas</span></h2>
         </div>
-        
+
         <div class="skills-grid">
             {skillCategories.map((category, index) => (
                 <div class="skill-card" data-aos="fade-up" data-aos-delay={index * 50}>
                     <div class="skill-header">
-                        <i class={`bi ${category.icon}`}></i>
+                        <i class={`bi ${category.icon}`} style={`color: ${category.color}`}></i>
                         <h3>{category.title}</h3>
                     </div>
                     <div class="skill-tags">
@@ -76,15 +83,16 @@ const skillCategories = [
 
     .skill-card {
         background: var(--dark);
-        border-radius: 16px;
+        border-radius: 4px;
         padding: 1.5rem;
-        border: 1px solid rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--glass-border);
         transition: all 0.3s ease;
     }
 
     .skill-card:hover {
-        border-color: rgba(139, 92, 246, 0.3);
+        border-color: var(--primary);
         transform: translateY(-4px);
+        box-shadow: 0 0 30px var(--glow-primary);
     }
 
     .skill-header {
@@ -96,12 +104,13 @@ const skillCategories = [
 
     .skill-header i {
         font-size: 1.25rem;
-        color: var(--primary-light);
     }
 
     .skill-header h3 {
-        font-size: 1rem;
+        font-size: 0.9375rem;
         font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
     }
 
     .skill-tags {
@@ -112,18 +121,20 @@ const skillCategories = [
 
     .skill-tag {
         padding: 0.375rem 0.75rem;
-        background: var(--dark-light);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 6px;
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 2px;
         font-size: 0.8125rem;
         font-weight: 500;
         transition: all 0.2s ease;
+        font-family: var(--font-mono);
     }
 
     .skill-tag:hover {
-        border-color: var(--primary);
-        color: var(--primary-light);
+        border-color: var(--accent);
+        color: var(--accent);
         transform: translateY(-2px);
+        box-shadow: 0 0 10px var(--glow-accent);
     }
 
     @media (max-width: 968px) {

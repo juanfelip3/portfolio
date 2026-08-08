@@ -9,50 +9,49 @@ const ctaInfo = [
 <section class="cta-section">
     <div class="cta-bg">
         <div class="cta-gradient"></div>
-        <div class="cta-pattern"></div>
     </div>
-    
+
     <div class="container">
         <div class="cta-card" data-aos="fade-up">
             <div class="cta-icon">
                 <i class="bi bi-rocket-takeoff"></i>
             </div>
-            
+
             <h2 class="cta-title">¿Necesitas un <span class="gradient-text">Backend Developer</span>?</h2>
-            
+
             <p class="cta-text">
-                Estoy buscando nuevas oportunidades donde pueda aportar mis habilidades 
+                Estoy buscando nuevas oportunidades donde pueda aportar mis habilidades
                 en Python, Django y arquitectura de software. ¡Hablemos!
             </p>
-            
+
             <div class="cta-buttons">
                 <a href="mailto:juanfelipealvearestrada@gmail.com" class="btn btn-primary">
                     <i class="bi bi-envelope-fill"></i>
                     Enviar Email
                 </a>
-                <a 
-                    href="https://wa.me/573025279667?text=Hola%20Juan%20Felipe,%20vi%20tu%20portafolio%20y%20me%20gustaría%20hablar%20contigo." 
-                    target="_blank" 
+                <a
+                    href="https://wa.me/573025279667?text=Hola%20Juan%20Felipe,%20vi%20tu%20portafolio%20y%20me%20gustaría%20hablar%20contigo."
+                    target="_blank"
                     class="btn btn-whatsapp"
                 >
                     <i class="bi bi-whatsapp"></i>
                     WhatsApp
                 </a>
             </div>
-            
+
             <div class="cta-divider">
                 <span>o revisa mi perfil</span>
             </div>
-            
-            <a 
-                href="https://www.linkedin.com/in/juan-felipe-alvear-estrada-399a6b388/" 
-                target="_blank" 
+
+            <a
+                href="https://www.linkedin.com/in/juan-felipe-alvear-estrada-399a6b388/"
+                target="_blank"
                 class="btn btn-linkedin"
             >
                 <i class="bi bi-linkedin"></i>
                 Ver LinkedIn
             </a>
-            
+
             <div class="cta-info">
                 {ctaInfo.map(item => (
                     <div class="cta-info-item">
@@ -81,43 +80,38 @@ const ctaInfo = [
     .cta-gradient {
         position: absolute;
         inset: 0;
-        background: linear-gradient(135deg, 
-            rgba(139, 92, 246, 0.1) 0%, 
-            rgba(6, 182, 212, 0.1) 50%,
-            rgba(16, 185, 129, 0.05) 100%
+        background: linear-gradient(135deg,
+            rgba(255, 46, 166, 0.08) 0%,
+            rgba(0, 240, 255, 0.06) 50%,
+            rgba(255, 204, 0, 0.04) 100%
         );
-    }
-
-    .cta-pattern {
-        position: absolute;
-        inset: 0;
-        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%238b5cf6' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     }
 
     .cta-card {
         position: relative;
         max-width: 700px;
         margin: 0 auto;
-        background: rgba(17, 24, 39, 0.8);
+        background: var(--dark-light);
         backdrop-filter: blur(20px);
-        border: 1px solid rgba(139, 92, 246, 0.2);
-        border-radius: 24px;
+        border: 1px solid var(--primary);
+        border-radius: 4px;
         padding: 3rem;
         text-align: center;
+        box-shadow: 0 0 60px var(--glow-primary);
     }
 
     .cta-icon {
         width: 80px;
         height: 80px;
-        background: var(--gradient);
-        border-radius: 20px;
+        background: var(--gradient-btn);
+        border-radius: 4px;
         display: flex;
         align-items: center;
         justify-content: center;
         margin: 0 auto 1.5rem;
         font-size: 2rem;
-        color: white;
-        box-shadow: 0 10px 40px rgba(139, 92, 246, 0.3);
+        color: #0A090F;
+        box-shadow: 0 0 40px var(--glow-primary);
     }
 
     .cta-title {
@@ -156,12 +150,13 @@ const ctaInfo = [
         content: '';
         flex: 1;
         height: 1px;
-        background: rgba(255, 255, 255, 0.1);
+        background: var(--glass-border);
     }
 
     .btn-linkedin {
         background: #0077b5;
         color: white;
+        border-radius: 4px;
     }
 
     .btn-linkedin:hover {
@@ -187,7 +182,7 @@ const ctaInfo = [
     }
 
     .cta-info-item i {
-        color: var(--success);
+        color: var(--accent);
     }
 
     @media (max-width: 640px) {

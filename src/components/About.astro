@@ -5,28 +5,29 @@
     <div class="container">
         <div class="about-grid">
             <div class="about-header" data-aos="fade-right">
-                <p class="section-label">// Sobre Mí</p>
+                <p class="section-label">Sobre Mí</p>
+                <div class="glow-line"></div>
                 <h2 class="section-title">Perfil <span class="gradient-text">Profesional</span></h2>
             </div>
-            
+
             <div class="about-content" data-aos="fade-up">
                 <div class="about-card">
                     <div class="card-decoration"></div>
                     <p class="about-text">
-                        Soy un <strong>desarrollador Backend</strong> apasionado por crear soluciones 
-                        tecnológicas eficientes y escalables. Mi enfoque está en traducir requerimientos 
+                        Soy un <strong>desarrollador Backend</strong> apasionado por crear soluciones
+                        tecnológicas eficientes y escalables. Mi enfoque está en traducir requerimientos
                         de negocio en <strong>arquitecturas limpias y mantenibles</strong>.
                     </p>
                     <p class="about-text">
-                        Experiencia demostrable en el desarrollo de <strong>WebCrawlers distribuidos</strong>, 
-                        <strong>sistemas de facturación</strong>, <strong>APIs REST con autenticación JWT</strong>, 
+                        Experiencia demostrable en el desarrollo de <strong>WebCrawlers distribuidos</strong>,
+                        <strong>sistemas de facturación</strong>, <strong>APIs REST con autenticación JWT</strong>,
                         y aplicaciones con patrones de diseño <strong>SOLID y MVC</strong>.
                     </p>
                     <p class="about-text">
-                        <strong>Metodologías:</strong> Scrum, desarrollo ágil, documentación técnica, 
+                        <strong>Metodologías:</strong> Scrum, desarrollo ágil, documentación técnica,
                         code review y testing. Rápida adaptación a nuevos lenguajes y entornos tecnológicos.
                     </p>
-                    
+
                     <div class="about-tags">
                         <span class="tag">Arquitectura Limpia</span>
                         <span class="tag">API Design</span>
@@ -49,9 +50,9 @@
 
     .about-card {
         background: var(--dark-light);
-        border-radius: 20px;
+        border-radius: 4px;
         padding: 2.5rem;
-        border: 1px solid rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--glass-border);
         position: relative;
         overflow: hidden;
     }
@@ -61,8 +62,8 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 4px;
-        background: var(--gradient);
+        height: 2px;
+        background: var(--gradient-btn);
     }
 
     .about-text {
@@ -88,12 +89,15 @@
 
     .tag {
         padding: 0.5rem 1rem;
-        background: rgba(139, 92, 246, 0.1);
-        border: 1px solid rgba(139, 92, 246, 0.2);
-        border-radius: 8px;
-        font-size: 0.875rem;
+        background: rgba(255, 204, 0, 0.06);
+        border: 1px solid rgba(255, 204, 0, 0.2);
+        border-radius: 2px;
+        font-size: 0.8125rem;
         font-weight: 500;
-        color: var(--primary-light);
+        color: var(--accent);
+        font-family: var(--font-mono);
+        text-transform: uppercase;
+        letter-spacing: 1px;
     }
 
     @media (max-width: 968px) {

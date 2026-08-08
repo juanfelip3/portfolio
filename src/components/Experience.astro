@@ -51,11 +51,12 @@ const education = [
 <section class="section experience" id="experiencia">
     <div class="container">
         <div class="section-header" data-aos="fade-up">
-            <p class="section-label">// Trayectoria</p>
+            <p class="section-label">Trayectoria</p>
+            <div class="glow-line"></div>
             <h2 class="section-title">Experiencia <span class="gradient-text">Laboral</span></h2>
             <p class="section-subtitle">Resultados medibles en cada posición</p>
         </div>
-        
+
         <div class="timeline">
             {experiences.map((exp, index) => (
                 <div class="timeline-item" data-aos="fade-up" data-aos-delay={index * 100}>
@@ -80,7 +81,7 @@ const education = [
                 </div>
             ))}
         </div>
-        
+
         <div class="education-section" data-aos="fade-up">
             <h3 class="education-title">
                 <i class="bi bi-mortarboard"></i>
@@ -128,7 +129,7 @@ const education = [
         top: 0;
         bottom: 0;
         width: 2px;
-        background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        background: linear-gradient(to bottom, var(--primary), var(--secondary), var(--accent));
     }
 
     .timeline-item {
@@ -149,20 +150,21 @@ const education = [
         height: 14px;
         background: var(--primary);
         border-radius: 50%;
-        box-shadow: 0 0 0 4px var(--dark-light), 0 0 0 6px var(--primary);
+        box-shadow: 0 0 0 4px var(--dark-light), 0 0 0 6px var(--primary), 0 0 20px var(--glow-primary);
     }
 
     .timeline-content {
         background: var(--dark);
-        border-radius: 16px;
+        border-radius: 4px;
         padding: 1.75rem;
-        border: 1px solid rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--glass-border);
         transition: all 0.3s ease;
     }
 
     .timeline-content:hover {
-        border-color: rgba(139, 92, 246, 0.3);
+        border-color: var(--primary);
         transform: translateX(8px);
+        box-shadow: 0 0 30px var(--glow-primary);
     }
 
     .exp-header {
@@ -187,12 +189,15 @@ const education = [
 
     .exp-date {
         padding: 0.375rem 0.875rem;
-        background: rgba(139, 92, 246, 0.1);
-        color: var(--primary-light);
-        font-size: 0.8125rem;
+        background: rgba(255, 46, 166, 0.08);
+        color: var(--primary);
+        font-size: 0.75rem;
         font-weight: 600;
-        border-radius: 20px;
+        border-radius: 2px;
         font-family: var(--font-mono);
+        border: 1px solid rgba(255, 46, 166, 0.2);
+        text-transform: uppercase;
+        letter-spacing: 1px;
     }
 
     .exp-achievements {
@@ -214,16 +219,15 @@ const education = [
     }
 
     .exp-achievements i {
-        color: var(--success);
+        color: var(--accent);
         margin-top: 0.25rem;
         flex-shrink: 0;
     }
 
     .exp-achievements strong {
-        color: var(--accent);
+        color: var(--text);
     }
 
-    /* Education */
     .education-section {
         margin-top: 4rem;
     }
@@ -248,27 +252,30 @@ const education = [
 
     .education-card {
         background: var(--dark);
-        border-radius: 16px;
+        border-radius: 4px;
         padding: 1.5rem;
-        border: 1px solid rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--glass-border);
         transition: all 0.3s ease;
     }
 
     .education-card:hover {
-        border-color: rgba(6, 182, 212, 0.3);
+        border-color: var(--secondary);
         transform: translateY(-4px);
+        box-shadow: 0 0 30px var(--glow-secondary);
     }
 
     .edu-date {
         display: inline-block;
         padding: 0.25rem 0.625rem;
-        background: rgba(6, 182, 212, 0.1);
+        background: rgba(0, 240, 255, 0.06);
         color: var(--secondary);
-        font-size: 0.75rem;
+        font-size: 0.6875rem;
         font-weight: 600;
         font-family: var(--font-mono);
-        border-radius: 12px;
+        border-radius: 2px;
         margin-bottom: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
     }
 
     .edu-title {

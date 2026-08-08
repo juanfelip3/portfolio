@@ -5,7 +5,7 @@ const contacts = [
         title: "Email",
         text: "juanfelipealvearestrada@gmail.com",
         href: "mailto:juanfelipealvearestrada@gmail.com",
-        color: null
+        color: "#FF2EA6"
     },
     {
         icon: "bi-whatsapp",
@@ -19,12 +19,12 @@ const contacts = [
         title: "GitHub",
         text: "/Juanfelipe-pro",
         href: "https://github.com/Juanfelipe-pro",
-        color: null
+        color: "#00F0FF"
     },
     {
         icon: "bi-linkedin",
         title: "LinkedIn",
-        text: "/in/juan-felipe-alvear-estrada",
+        text: "/in/juan-felipe-alvear",
         href: "https://www.linkedin.com/in/juan-felipe-alvear-estrada-399a6b388/",
         color: "#0077b5"
     },
@@ -34,21 +34,23 @@ const contacts = [
 <section class="section contact" id="contacto">
     <div class="container">
         <div class="section-header" data-aos="fade-up">
-            <p class="section-label">// Contacto</p>
+            <p class="section-label">Contacto</p>
+            <div class="glow-line"></div>
             <h2 class="section-title">¿Hablamos?</h2>
         </div>
-        
+
         <div class="contact-grid">
             {contacts.map((contact, index) => (
-                <a 
-                    href={contact.href} 
+                <a
+                    href={contact.href}
                     target={contact.href.startsWith('mailto') ? '_self' : '_blank'}
                     rel="noopener noreferrer"
-                    class="contact-card" 
-                    data-aos="fade-up" 
+                    class="contact-card"
+                    data-aos="fade-up"
                     data-aos-delay={index * 100}
+                    style={`--card-color: ${contact.color}`}
                 >
-                    <div class="contact-icon" style={contact.color ? `background: ${contact.color}` : ''}>
+                    <div class="contact-icon">
                         <i class={`bi ${contact.icon}`}></i>
                     </div>
                     <h3 class="contact-title">{contact.title}</h3>
@@ -75,31 +77,39 @@ const contacts = [
 
     .contact-card {
         background: var(--dark-light);
-        border-radius: 16px;
+        border-radius: 4px;
         padding: 1.75rem;
-        border: 1px solid rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--glass-border);
         text-align: center;
         transition: all 0.3s ease;
         display: block;
     }
 
     .contact-card:hover {
-        border-color: rgba(139, 92, 246, 0.4);
+        border-color: var(--card-color);
         transform: translateY(-6px);
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0 40px color-mix(in srgb, var(--card-color) 30%, transparent);
     }
 
     .contact-icon {
         width: 56px;
         height: 56px;
-        background: var(--gradient);
-        border-radius: 14px;
+        background: color-mix(in srgb, var(--card-color) 15%, transparent);
+        border: 1px solid color-mix(in srgb, var(--card-color) 30%, transparent);
+        border-radius: 4px;
         display: flex;
         align-items: center;
         justify-content: center;
         margin: 0 auto 1rem;
         font-size: 1.5rem;
-        color: white;
+        color: var(--card-color);
+        transition: all 0.3s ease;
+    }
+
+    .contact-card:hover .contact-icon {
+        background: var(--card-color);
+        color: #0A090F;
+        box-shadow: 0 0 20px color-mix(in srgb, var(--card-color) 50%, transparent);
     }
 
     .contact-title {
@@ -112,6 +122,7 @@ const contacts = [
         color: var(--text-muted);
         font-size: 0.8125rem;
         word-break: break-word;
+        font-family: var(--font-mono);
     }
 
     @media (max-width: 968px) {

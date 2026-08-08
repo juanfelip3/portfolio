@@ -1,0 +1,96 @@
+---
+const technologies = [
+    { name: "Python", color: "#3776AB" },
+    { name: "Django", color: "#092E20" },
+    { name: "DRF", color: "#FF1704" },
+    { name: "Go", color: "#00ADD8" },
+    { name: "PostgreSQL", color: "#4169E1" },
+    { name: "Redis", color: "#DC382D" },
+    { name: "Docker", color: "#2496ED" },
+    { name: "Celery", color: "#A9CC54" },
+    { name: "JWT", color: "#000000" },
+    { name: "Swagger", color: "#85EA2D" },
+    { name: "Linux", color: "#FCC624" },
+    { name: "Node.js", color: "#339933" },
+    { name: "Java", color: "#ED8B00" },
+    { name: "SQL", color: "#E38C00" },
+    { name: "Git", color: "#F05032" },
+    { name: "Scrum", color: "#FF2EA6" },
+];
+---
+
+<section class="marquee-section">
+    <div class="marquee-wrapper">
+        <div class="marquee-track">
+            {[...technologies, ...technologies].map(tech => (
+                <span class="marquee-item" style={`--item-color: ${tech.color}`}>
+                    <span class="item-dot"></span>
+                    {tech.name}
+                </span>
+            ))}
+        </div>
+    </div>
+</section>
+
+<style>
+    .marquee-section {
+        padding: 1.5rem 0;
+        overflow: hidden;
+        border-top: 1px solid var(--glass-border);
+        border-bottom: 1px solid var(--glass-border);
+        background: var(--glass-bg);
+    }
+
+    .marquee-wrapper {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .marquee-track {
+        display: flex;
+        gap: 3rem;
+        animation: marquee 40s linear infinite;
+        width: max-content;
+    }
+
+    .marquee-track:hover {
+        animation-play-state: paused;
+    }
+
+    @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+
+    .marquee-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: var(--font-mono);
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--text-muted);
+        white-space: nowrap;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        transition: color 0.3s ease;
+    }
+
+    .marquee-item:hover {
+        color: var(--item-color);
+    }
+
+    .item-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--item-color);
+        flex-shrink: 0;
+        box-shadow: 0 0 8px var(--item-color);
+    }
+
+    .marquee-item:hover .item-dot {
+        box-shadow: 0 0 16px var(--item-color);
+        transform: scale(1.3);
+    }
+</style>

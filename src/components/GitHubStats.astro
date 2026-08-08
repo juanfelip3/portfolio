@@ -59,7 +59,8 @@ const languageColors: Record<string, string> = {
 <section class="section github-stats" id="github">
     <div class="container">
         <div class="section-header" data-aos="fade-up">
-            <p class="section-label">// Open Source</p>
+            <p class="section-label">Open Source</p>
+            <div class="glow-line"></div>
             <h2 class="section-title">GitHub <span class="gradient-text">Stats</span></h2>
             <p class="section-subtitle">Estadísticas de mi actividad en GitHub</p>
         </div>
@@ -224,9 +225,9 @@ const languageColors: Record<string, string> = {
 
     .github-card {
         background: var(--dark);
-        border-radius: 20px;
+        border-radius: 4px;
         padding: 1.75rem;
-        border: 1px solid rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--glass-border);
     }
 
     /* Profile Card */
@@ -250,6 +251,7 @@ const languageColors: Record<string, string> = {
         border-radius: 50%;
         border: 3px solid var(--primary);
         margin-bottom: 1rem;
+        box-shadow: 0 0 20px var(--glow-primary);
     }
 
     .profile-info h3 {
@@ -265,7 +267,7 @@ const languageColors: Record<string, string> = {
     }
 
     .profile-username:hover {
-        color: var(--primary);
+        color: var(--accent);
     }
 
     .profile-stats {
@@ -282,14 +284,15 @@ const languageColors: Record<string, string> = {
         display: block;
         font-size: 1.5rem;
         font-weight: 700;
-        color: var(--primary-light);
+        color: var(--accent);
     }
 
     .stat-label {
-        font-size: 0.75rem;
+        font-size: 0.6875rem;
         color: var(--text-muted);
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: 2px;
+        font-family: var(--font-mono);
     }
 
     .profile-btn {
@@ -306,9 +309,9 @@ const languageColors: Record<string, string> = {
 
     .stats-card {
         background: var(--dark);
-        border-radius: 16px;
+        border-radius: 4px;
         padding: 1.5rem;
-        border: 1px solid rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--glass-border);
         display: flex;
         align-items: center;
         gap: 1rem;
@@ -316,35 +319,36 @@ const languageColors: Record<string, string> = {
     }
 
     .stats-card:hover {
-        border-color: rgba(139, 92, 246, 0.3);
+        border-color: var(--primary);
         transform: translateY(-2px);
+        box-shadow: 0 0 20px var(--glow-primary);
     }
 
     .stats-icon {
         width: 50px;
         height: 50px;
-        background: rgba(139, 92, 246, 0.1);
-        border-radius: 12px;
+        background: rgba(255, 46, 166, 0.1);
+        border-radius: 4px;
         display: flex;
         align-items: center;
         justify-content: center;
         font-size: 1.25rem;
-        color: var(--primary-light);
+        color: var(--primary);
     }
 
     .stats-icon.forks {
-        background: rgba(6, 182, 212, 0.1);
+        background: rgba(0, 240, 255, 0.1);
         color: var(--secondary);
     }
 
     .stats-icon.repos {
-        background: rgba(16, 185, 129, 0.1);
-        color: var(--success);
+        background: rgba(255, 204, 0, 0.1);
+        color: var(--accent);
     }
 
     .stats-icon.commits {
-        background: rgba(245, 158, 11, 0.1);
-        color: var(--warning);
+        background: rgba(0, 240, 255, 0.1);
+        color: var(--secondary);
     }
 
     .stats-value {
@@ -373,7 +377,7 @@ const languageColors: Record<string, string> = {
     }
 
     .card-title i {
-        color: var(--primary-light);
+        color: var(--secondary);
     }
 
     .languages-list {
@@ -397,8 +401,8 @@ const languageColors: Record<string, string> = {
     }
 
     .language-dot {
-        width: 12px;
-        height: 12px;
+        width: 10px;
+        height: 10px;
         border-radius: 50%;
     }
 
@@ -415,10 +419,10 @@ const languageColors: Record<string, string> = {
 
     .languages-bar {
         display: flex;
-        height: 8px;
-        border-radius: 4px;
+        height: 4px;
+        border-radius: 2px;
         overflow: hidden;
-        background: var(--dark-light);
+        background: var(--glass-bg);
     }
 
     .bar-segment {
@@ -427,7 +431,7 @@ const languageColors: Record<string, string> = {
     }
 
     .bar-segment:hover {
-        filter: brightness(1.2);
+        filter: brightness(1.3);
     }
 
     /* GitHub Images */
@@ -441,7 +445,7 @@ const languageColors: Record<string, string> = {
     .github-stats-img {
         max-width: 100%;
         height: auto;
-        border-radius: 12px;
+        border-radius: 4px;
     }
 
     @media (max-width: 1200px) {

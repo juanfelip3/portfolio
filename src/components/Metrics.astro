@@ -3,7 +3,7 @@ const metrics = [
     { number: "2+", label: "Años Experiencia" },
     { number: "35%", label: "Reducción Tiempos" },
     { number: "40%", label: "+ Eficiencia" },
-    { number: "5+", label: "Tecnologías" },
+    { number: "5+", label: "Proyectos" },
 ];
 ---
 
@@ -23,29 +23,29 @@ const metrics = [
 <style>
     .metrics {
         background: var(--dark-light);
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        padding: 4rem 0;
+        border-top: 1px solid var(--glass-border);
+        border-bottom: 1px solid var(--glass-border);
+        padding: 3rem 0;
     }
 
     .metrics-grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 2rem;
+        gap: 1.5rem;
     }
 
     .metric-item {
         text-align: center;
         padding: 1.5rem;
-        border-radius: 16px;
-        background: rgba(139, 92, 246, 0.05);
-        border: 1px solid rgba(139, 92, 246, 0.1);
+        border-radius: 4px;
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
         transition: all 0.3s ease;
     }
 
     .metric-item:hover {
-        background: rgba(139, 92, 246, 0.1);
-        border-color: rgba(139, 92, 246, 0.3);
+        border-color: var(--primary);
+        box-shadow: 0 0 30px var(--glow-primary);
         transform: translateY(-4px);
     }
 
@@ -53,7 +53,7 @@ const metrics = [
         display: block;
         font-size: 2.5rem;
         font-weight: 700;
-        background: var(--gradient);
+        background: var(--gradient-text);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -61,10 +61,11 @@ const metrics = [
     }
 
     .metric-label {
-        font-size: 0.875rem;
+        font-size: 0.8125rem;
         color: var(--text-muted);
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: 2px;
+        font-family: var(--font-mono);
     }
 
     @media (max-width: 768px) {

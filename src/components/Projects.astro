@@ -1,28 +1,44 @@
 ---
 const projects = [
     {
-        type: "Backend · Python",
-        title: "Sistema de Facturación",
-        description: "Backend para facturación y control de stock con Django REST. Arquitectura SOLID, transacciones atómicas, signals y reportes JSON/PDF.",
-        tech: ["Django", "DRF", "PostgreSQL", "Docker"],
+        type: "PYTHON · DJANGO",
+        title: "Billing Service",
+        description: "Backend de facturación y control de stock con arquitectura modular por capas. Transacciones atómicas, signals para stock automático y reportes JSON/PDF.",
+        tech: ["Django", "DRF", "PostgreSQL", "Docker", "ReportLab"],
         github: "https://github.com/Juanfelipe-pro/billing-service",
-        demo: null
+        color: "#FF2EA6"
     },
     {
-        type: "Backend · API REST",
-        title: "API Autenticación JWT",
-        description: "API REST de autenticación con Django REST Framework. CustomUser, roles/permisos, documentación Swagger, ReDoc y Scalar Docs.",
-        tech: ["Django", "JWT", "Swagger", "PostgreSQL"],
-        github: "https://github.com/Juanfelipe-pro/drf-auth-api",
-        demo: null
+        type: "PYTHON · API REST",
+        title: "Expense Tracker API",
+        description: "API para gestión y análisis de gastos personales con autenticación JWT, filtros avanzados, estadísticas y documentación Swagger/ReDoc.",
+        tech: ["Django", "JWT", "Swagger", "PostgreSQL", "Docker"],
+        github: "https://github.com/Juanfelipe-pro/expense-tracker-drf-api",
+        color: "#00F0FF"
     },
     {
-        type: "Backend · Java",
-        title: "Sistema Bancario MVC",
-        description: "Aplicación bancaria en Java puro con patrón MVC. Interfaces, herencia, tipos de cuentas y manejo de transacciones.",
-        tech: ["Java 17+", "MVC", "POO", "SOLID"],
-        github: "https://github.com/Juanfelipe-pro/BancoApp-Java-MVC",
-        demo: null
+        type: "PYTHON · API REST",
+        title: "Event Manager API",
+        description: "Sistema de gestión de eventos con compra de tickets, generación de códigos QR, control de capacidad, check-in y roles de usuario.",
+        tech: ["Django", "DRF", "JWT", "QR Codes", "PostgreSQL"],
+        github: "https://github.com/Juanfelipe-pro/event_manager",
+        color: "#FFCC00"
+    },
+    {
+        type: "NODE.JS · FULL STACK",
+        title: "Fut Analítica",
+        description: "App de análisis de fútbol para Brasileirão y Categoría Primera A. Backend Node.js con Express, frontend Astro SSR con gráficos interactivos y predicciones.",
+        tech: ["Node.js", "Express", "SQLite", "Astro SSR", "API-Football"],
+        github: "https://github.com/Juanfelipe-pro/fut-analitica",
+        color: "#00F0FF"
+    },
+    {
+        type: "GO · MICROSERVICIOS",
+        title: "API Gateway",
+        description: "Microservicio de enrutamiento en Go con rate limiting, circuit breaker, reverse proxy concurrente y gestión de tráfico.",
+        tech: ["Go", "Gorilla Mux", "Goroutines", "Circuit Breaker"],
+        github: "https://github.com/Juanfelipe-pro",
+        color: "#00ADD8"
     },
 ];
 ---
@@ -30,47 +46,43 @@ const projects = [
 <section class="section projects" id="proyectos">
     <div class="container">
         <div class="section-header" data-aos="fade-up">
-            <p class="section-label">// Portafolio</p>
+            <p class="section-label">Portafolio</p>
+            <div class="glow-line"></div>
             <h2 class="section-title">Proyectos <span class="gradient-text">Backend</span></h2>
             <p class="section-subtitle">Código disponible en GitHub</p>
         </div>
-        
+
         <div class="projects-grid">
             {projects.map((project, index) => (
-                <article class="project-card" data-aos="fade-up" data-aos-delay={index * 100}>
+                <article class="project-card" data-aos="fade-up" data-aos-delay={index * 100} data-tilt>
+                    <div class="project-glow" style={`--card-color: ${project.color}`}></div>
                     <div class="project-content">
-                        <span class="project-type">{project.type}</span>
+                        <span class="project-type" style={`color: ${project.color}`}>{project.type}</span>
                         <h3 class="project-title">{project.title}</h3>
                         <p class="project-description">{project.description}</p>
-                        
+
                         <div class="project-tech">
                             {project.tech.map(tech => (
                                 <span class="tech-badge">{tech}</span>
                             ))}
                         </div>
-                        
+
                         <div class="project-links">
                             <a href={project.github} target="_blank" rel="noopener noreferrer" class="project-link">
                                 <i class="bi bi-github"></i>
                                 Ver código
                             </a>
-                            {project.demo && (
-                                <a href={project.demo} target="_blank" rel="noopener noreferrer" class="project-link demo">
-                                    <i class="bi bi-box-arrow-up-right"></i>
-                                    Demo
-                                </a>
-                            )}
                         </div>
                     </div>
-                    <div class="project-decoration"></div>
+                    <div class="project-border" style={`--card-color: ${project.color}`}></div>
                 </article>
             ))}
         </div>
-        
+
         <div class="projects-cta" data-aos="fade-up">
             <a href="https://github.com/Juanfelipe-pro" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
                 <i class="bi bi-github"></i>
-                Ver más proyectos en GitHub
+                Ver más en GitHub
             </a>
         </div>
     </div>
@@ -95,34 +107,53 @@ const projects = [
 
     .project-card {
         background: var(--dark-light);
-        border-radius: 20px;
+        border-radius: 4px;
         overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--glass-border);
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         display: flex;
         flex-direction: column;
         position: relative;
+        transform-style: preserve-3d;
+        perspective: 1000px;
     }
 
     .project-card:hover {
-        transform: translateY(-8px);
-        border-color: rgba(139, 92, 246, 0.4);
-        box-shadow: 0 20px 60px rgba(139, 92, 246, 0.15);
+        transform: translateY(-8px) rotateX(2deg) rotateY(-2deg);
+        border-color: var(--card-color, var(--primary));
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 40px color-mix(in srgb, var(--card-color, var(--primary)) 30%, transparent);
     }
 
-    .project-decoration {
+    .project-glow {
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, color-mix(in srgb, var(--card-color) 15%, transparent) 0%, transparent 60%);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        pointer-events: none;
+    }
+
+    .project-card:hover .project-glow {
+        opacity: 1;
+    }
+
+    .project-border {
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
-        height: 3px;
-        background: var(--gradient);
+        height: 2px;
+        background: var(--card-color);
         opacity: 0;
         transition: opacity 0.3s ease;
     }
 
-    .project-card:hover .project-decoration {
+    .project-card:hover .project-border {
         opacity: 1;
+        box-shadow: 0 0 20px var(--card-color);
     }
 
     .project-content {
@@ -136,15 +167,15 @@ const projects = [
         display: inline-block;
         width: fit-content;
         padding: 0.25rem 0.75rem;
-        background: rgba(139, 92, 246, 0.1);
-        color: var(--primary-light);
-        font-size: 0.75rem;
-        font-weight: 600;
+        background: rgba(255, 255, 255, 0.03);
+        font-size: 0.6875rem;
+        font-weight: 700;
         font-family: var(--font-mono);
         text-transform: uppercase;
-        letter-spacing: 0.5px;
-        border-radius: 20px;
+        letter-spacing: 2px;
         margin-bottom: 1rem;
+        border: 1px solid currentColor;
+        border-radius: 2px;
     }
 
     .project-title {
@@ -166,16 +197,17 @@ const projects = [
         gap: 0.5rem;
         margin-top: 1.25rem;
         padding-top: 1.25rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        border-top: 1px solid var(--glass-border);
     }
 
     .tech-badge {
         padding: 0.25rem 0.625rem;
-        background: var(--dark);
-        border-radius: 6px;
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 2px;
         font-size: 0.75rem;
         font-family: var(--font-mono);
-        color: var(--accent);
+        color: var(--text-muted);
     }
 
     .project-links {
@@ -189,9 +221,9 @@ const projects = [
         align-items: center;
         gap: 0.5rem;
         padding: 0.5rem 1rem;
-        background: var(--dark);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 8px;
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 2px;
         font-size: 0.8125rem;
         font-weight: 500;
         transition: all 0.3s ease;
@@ -201,16 +233,6 @@ const projects = [
         background: var(--text);
         color: var(--dark);
         border-color: var(--text);
-    }
-
-    .project-link.demo {
-        background: var(--gradient);
-        border-color: transparent;
-        color: white;
-    }
-
-    .project-link.demo:hover {
-        box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
     }
 
     .projects-cta {
@@ -230,3 +252,28 @@ const projects = [
         }
     }
 </style>
+
+<script>
+    document.querySelectorAll('[data-tilt]').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = (y - centerY) / 20;
+            const rotateY = (centerX - x) / 20;
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+
+            const glow = card.querySelector('.project-glow');
+            if (glow) {
+                glow.style.left = `${(x / rect.width) * 100}%`;
+                glow.style.top = `${(y / rect.height) * 100}%`;
+            }
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+        });
+    });
+</script>
