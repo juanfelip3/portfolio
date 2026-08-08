@@ -1,0 +1,239 @@
+---
+---
+
+<div class="splash" id="splash" aria-hidden="true">
+    <div class="splash-bg">
+        <div class="splash-grid"></div>
+        <div class="splash-glow glow-1"></div>
+        <div class="splash-glow glow-2"></div>
+        <div class="splash-scanlines"></div>
+    </div>
+    <div class="splash-content">
+        <div class="splash-logo">
+            <span class="bracket">&lt;</span>
+            <span class="logo-text">JFA</span>
+            <span class="slash"> /</span>
+            <span class="bracket">&gt;</span>
+        </div>
+        <div class="splash-bar">
+            <div class="splash-bar-fill" id="splashBar"></div>
+        </div>
+        <div class="splash-status">
+            <span class="splash-percent" id="splashPercent">0%</span>
+            <span class="splash-text">INICIALIZANDO SISTEMA<span class="dots">...</span></span>
+        </div>
+    </div>
+    <noscript>
+        <style>
+            #splash { display: none !important; }
+        </style>
+    </noscript>
+</div>
+
+<style>
+    .splash {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        background: #0A090F;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+
+    .splash.hidden {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .splash-bg {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+    }
+
+    .splash-grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+            linear-gradient(rgba(255, 46, 166, 0.04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 46, 166, 0.04) 1px, transparent 1px);
+        background-size: 50px 50px;
+        mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
+    }
+
+    .splash-glow {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(100px);
+    }
+
+    .glow-1 {
+        top: 30%;
+        left: 20%;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(255, 46, 166, 0.2) 0%, transparent 70%);
+        animation: splash-pulse 4s ease-in-out infinite;
+    }
+
+    .glow-2 {
+        bottom: 30%;
+        right: 20%;
+        width: 250px;
+        height: 250px;
+        background: radial-gradient(circle, rgba(0, 240, 255, 0.15) 0%, transparent 70%);
+        animation: splash-pulse 4s ease-in-out infinite 2s;
+    }
+
+    @keyframes splash-pulse {
+        0%, 100% { opacity: 0.3; transform: scale(1); }
+        50% { opacity: 0.7; transform: scale(1.2); }
+    }
+
+    .splash-scanlines {
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0) 0px,
+            rgba(0, 0, 0, 0) 2px,
+            rgba(0, 0, 0, 0.03) 2px,
+            rgba(0, 0, 0, 0.03) 4px
+        );
+        pointer-events: none;
+    }
+
+    .splash-content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+    }
+
+    .splash-logo {
+        font-family: var(--font-mono);
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        animation: logo-flicker 3s ease-in-out infinite;
+    }
+
+    .bracket {
+        color: #FF2EA6;
+    }
+
+    .logo-text {
+        background: linear-gradient(135deg, #FF2EA6, #FFCC00, #00F0FF);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        filter: drop-shadow(0 0 20px rgba(255, 46, 166, 0.5));
+    }
+
+    .slash {
+        color: #00F0FF;
+    }
+
+    @keyframes logo-flicker {
+        0%, 100% { opacity: 1; }
+        92% { opacity: 1; }
+        93% { opacity: 0.4; }
+        94% { opacity: 1; }
+        96% { opacity: 0.6; }
+        97% { opacity: 1; }
+    }
+
+    .splash-bar {
+        width: 240px;
+        height: 3px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 2px;
+        margin: 0 auto 1rem;
+        overflow: hidden;
+    }
+
+    .splash-bar-fill {
+        width: 0%;
+        height: 100%;
+        background: linear-gradient(90deg, #FF2EA6, #FFCC00, #00F0FF);
+        border-radius: 2px;
+        transition: width 0.05s linear;
+        box-shadow: 0 0 12px rgba(255, 46, 166, 0.6);
+    }
+
+    .splash-status {
+        display: flex;
+        justify-content: space-between;
+        font-family: var(--font-mono);
+        font-size: 0.6875rem;
+        color: rgba(255, 255, 255, 0.3);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    .splash-percent {
+        color: #FFCC00;
+        font-weight: 600;
+    }
+
+    .splash-text {
+        color: rgba(255, 255, 255, 0.25);
+    }
+
+    .dots {
+        animation: dots-blink 1.5s step-end infinite;
+    }
+
+    @keyframes dots-blink {
+        0% { content: '.'; }
+        33% { content: '..'; }
+        66% { content: '...'; }
+    }
+
+    @media (max-width: 640px) {
+        .splash-logo {
+            font-size: 2.25rem;
+        }
+
+        .splash-bar {
+            width: 180px;
+        }
+    }
+</style>
+
+<script>
+    const splash = document.getElementById('splash');
+    const bar = document.getElementById('splashBar');
+    const percent = document.getElementById('splashPercent');
+    let progress = 0;
+
+    function animateSplash() {
+        if (!bar || !percent || !splash) return;
+
+        const interval = setInterval(() => {
+            progress += Math.random() * 15 + 5;
+            if (progress >= 100) {
+                progress = 100;
+                clearInterval(interval);
+                bar.style.width = '100%';
+                percent.textContent = '100%';
+
+                setTimeout(() => {
+                    splash.classList.add('hidden');
+                    setTimeout(() => splash.remove(), 500);
+                }, 300);
+                return;
+            }
+            bar.style.width = progress + '%';
+            percent.textContent = Math.floor(progress) + '%';
+        }, 80);
+    }
+
+    window.addEventListener('load', () => {
+        setTimeout(animateSplash, 200);
+    });
+
+    setTimeout(animateSplash, 2000);
+</script>

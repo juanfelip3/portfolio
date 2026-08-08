@@ -5,7 +5,7 @@ const projects = [
         title: "Billing Service",
         description: "Backend de facturación y control de stock con arquitectura modular por capas. Transacciones atómicas, signals para stock automático y reportes JSON/PDF.",
         tech: ["Django", "DRF", "PostgreSQL", "Docker", "ReportLab"],
-        github: "https://github.com/Juanfelipe-pro/billing-service",
+        github: "https://github.com/juanfelip3/billing-service",
         color: "#FF2EA6"
     },
     {
@@ -13,7 +13,7 @@ const projects = [
         title: "Expense Tracker API",
         description: "API para gestión y análisis de gastos personales con autenticación JWT, filtros avanzados, estadísticas y documentación Swagger/ReDoc.",
         tech: ["Django", "JWT", "Swagger", "PostgreSQL", "Docker"],
-        github: "https://github.com/Juanfelipe-pro/expense-tracker-drf-api",
+        github: "https://github.com/juanfelip3/expense-tracker-drf-api",
         color: "#00F0FF"
     },
     {
@@ -21,7 +21,7 @@ const projects = [
         title: "Event Manager API",
         description: "Sistema de gestión de eventos con compra de tickets, generación de códigos QR, control de capacidad, check-in y roles de usuario.",
         tech: ["Django", "DRF", "JWT", "QR Codes", "PostgreSQL"],
-        github: "https://github.com/Juanfelipe-pro/event_manager",
+        github: "https://github.com/juanfelip3/event_manager",
         color: "#FFCC00"
     },
     {
@@ -29,16 +29,8 @@ const projects = [
         title: "Fut Analítica",
         description: "App de análisis de fútbol para Brasileirão y Categoría Primera A. Backend Node.js con Express, frontend Astro SSR con gráficos interactivos y predicciones.",
         tech: ["Node.js", "Express", "SQLite", "Astro SSR", "API-Football"],
-        github: "https://github.com/Juanfelipe-pro/fut-analitica",
+        github: "https://github.com/juanfelip3/fut-analitica",
         color: "#00F0FF"
-    },
-    {
-        type: "GO · MICROSERVICIOS",
-        title: "API Gateway",
-        description: "Microservicio de enrutamiento en Go con rate limiting, circuit breaker, reverse proxy concurrente y gestión de tráfico.",
-        tech: ["Go", "Gorilla Mux", "Goroutines", "Circuit Breaker"],
-        github: "https://github.com/Juanfelipe-pro",
-        color: "#00ADD8"
     },
 ];
 ---
@@ -80,7 +72,7 @@ const projects = [
         </div>
 
         <div class="projects-cta" data-aos="fade-up">
-            <a href="https://github.com/Juanfelipe-pro" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            <a href="https://github.com/juanfelip3" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
                 <i class="bi bi-github"></i>
                 Ver más en GitHub
             </a>
@@ -101,7 +93,7 @@ const projects = [
 
     .projects-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
     }
 
@@ -246,7 +238,7 @@ const projects = [
         }
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 768px) {
         .projects-grid {
             grid-template-columns: 1fr;
         }
